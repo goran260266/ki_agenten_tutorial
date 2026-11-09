@@ -1,0 +1,42 @@
+[project]
+name = "ki-agenten-tutorial"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "andrejeg1966", email = "goran.andrejevic@web.de" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "mypy>=1.19.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.0",
+]
+
+[project.scripts]
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pyright]
+extraPaths = ["src"]
+include = ["src", "tests"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.mypy]
+mypy_path = "src"
+
+[tool.ruff]
+src = ["src", "tests"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["ki_agenten-tutorial"]
